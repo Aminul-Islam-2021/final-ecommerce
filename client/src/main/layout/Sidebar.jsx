@@ -16,6 +16,7 @@ import { RiBloggerLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
 import { useState } from "react";
+import Filter from "../components/Filter";
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
   const [activeTab, setActiveTab] = useState("menu"); // State to track active tab
@@ -133,17 +134,18 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             </ul>
           )}
           {activeTab === "filters" && (
-            <ul className="flex flex-col items-start gap-1">
-              <li className="pl-10 hover:bg-gray-200 p-2 w-full">
-                Electronics
-              </li>
-              <li className="pl-10 hover:bg-gray-200 p-2 w-full">Fashion</li>
-              <li className="pl-10 hover:bg-gray-200 p-2 w-full">
-                Home Appliances
-              </li>
-              <li className="pl-10 hover:bg-gray-200 p-2 w-full">Books</li>
-              <li className="pl-10 hover:bg-gray-200 p-2 w-full">Sports</li>
-            </ul>
+            // <ul className="flex flex-col items-start gap-1">
+            //   <li className="pl-10 hover:bg-gray-200 p-2 w-full">
+            //     Electronics
+            //   </li>
+            //   <li className="pl-10 hover:bg-gray-200 p-2 w-full">Fashion</li>
+            //   <li className="pl-10 hover:bg-gray-200 p-2 w-full">
+            //     Home Appliances
+            //   </li>
+            //   <li className="pl-10 hover:bg-gray-200 p-2 w-full">Books</li>
+            //   <li className="pl-10 hover:bg-gray-200 p-2 w-full">Sports</li>
+            // </ul>
+            <Filter/>
           )}
         </div>
       </div>

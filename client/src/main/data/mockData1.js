@@ -60,7 +60,7 @@ export const products = [
     subcategory: 'womens-dresses',
     price: 49.99,
     rating: 4.7,
-    colors: ['red', 'yellow', 'pink'],
+    colors: ['red', 'pink'],
     sizes: ['XS', 'S', 'M'],
     image: '/dress-floral.jpg',
   },
