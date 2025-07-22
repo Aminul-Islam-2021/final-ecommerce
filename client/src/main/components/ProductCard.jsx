@@ -85,7 +85,7 @@ const ProductCard = ({ product, addToCart }) => {
             </button>
 
             <Link
-              to={`/product/${product.id}`}
+              to={`/product/:id`}
               className="p-3 bg-white text-gray-700 rounded-full hover:bg-gray-800 hover:text-white transition-colors shadow-lg backdrop-blur-sm"
               aria-label="Preview product"
             >
@@ -167,7 +167,7 @@ const ProductCard = ({ product, addToCart }) => {
           </button>
 
           <Link
-            to={`/product/${product.id}`}
+            to={`/product/:id`}
             className="p-2 bg-blue-500 text-white rounded hover:bg-cyan-500 transition-colors shadow"
           >
             <FiEye className="w-4 h-4" />
