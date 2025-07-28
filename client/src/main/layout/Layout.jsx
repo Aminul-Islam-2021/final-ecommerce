@@ -7,7 +7,7 @@ const Layout = () => {
   return (
     <div>
       <Navbar />
-      <main className=" bg-gray-100 min-h-screen pt-16 lg:pt-20 lg:px-8">
+      <main className="   bg-gray-100 h-full overflow-auto pt-16 lg:pt-20 lg:px-8">
         <Outlet />
       </main>
       <Footer />
@@ -16,3 +16,4 @@ const Layout = () => {
 };
 
 export default Layout;
+ 
