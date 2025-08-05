@@ -6,6 +6,8 @@ import Table1 from "../dashboard/dbPages/Table1";
 import Table2 from "../dashboard/dbPages/Table2";
 import LayoutDB from "../dashboard/dbLayout/LayoutDB";
 import Dashboard from "../dashboard/dbPages/Dashboard";
+import Category from "../dashboard/dbComponents/Category";
+import CreateProduct from "../dashboard/dbComponents/CreateProduct";
 
 export const router = createBrowserRouter([
   {
@@ -37,6 +39,14 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: <Dashboard />,
+      },
+       {
+        path: "category",
+        element: <Category />,
+      },
+       {
+        path: "create-product",
+        element: <CreateProduct />,
       },
     ],
   },
