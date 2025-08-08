@@ -1,44 +1,54 @@
-import { useState, useEffect,useCallback } from 'react';
-import { useSelector } from 'react-redux';
+import { useState, useEffect, useCallback } from "react";
+import { useSelector } from "react-redux";
 //import EcommerceFilters from './EcommerceFilters';
-import { products } from '../data/mockData1'; // Import your mock products
+import { products } from "../data/mockData1"; // Import your mock products
 
 const ProductListing = () => {
-  const filters = useSelector(state => state.filters);
+  const filters = useSelector((state) => state.filters);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
-    
+
     // Apply filters to mock data
-    const filtered = products.filter(product => {
+    const filtered = products.filter((product) => {
       // Category filter
-      if (filters.category && product.category !== filters.category) return false;
-      
+      if (filters.category && product.category !== filters.category)
+        return false;
+
       // Subcategory filter
-      if (filters.subcategory && product.subcategory !== filters.subcategory) return false;
-      
+      if (filters.subcategory && product.subcategory !== filters.subcategory)
+        return false;
+
       // Price range filter
-      if (filters.minPrice && product.price < Number(filters.minPrice)) return false;
-      if (filters.maxPrice && product.price > Number(filters.maxPrice)) return false;
-      
+      if (filters.minPrice && product.price < Number(filters.minPrice))
+        return false;
+      if (filters.maxPrice && product.price > Number(filters.maxPrice))
+        return false;
+
       // Rating filter
       if (filters.rating) {
-        const minRating = Math.min(...filters.rating.split(',').map(Number));
+        const minRating = Math.min(...filters.rating.split(",").map(Number));
         if (Math.floor(product.rating) < minRating) return false;
       }
-      
+
       // Color filter
-      if (filters.color && !filters.color.split(',').some(c => product.colors?.includes(c))) {
+      if (
+        filters.color &&
+        !filters.color.split(",").some((c) => product.colors?.includes(c))
+      ) {
         return false;
       }
-      
+
       // Size filter
-      if (filters.size && !filters.size.split(',').some(s => product.sizes?.includes(s))) {
+      if (
+        filters.size &&
+        !filters.size.split(",").some((s) => product.sizes?.includes(s))
+      ) {
         return false;
       }
-      
+
       return true;
     });
 
@@ -58,7 +68,7 @@ const ProductListing = () => {
         {/* <div className="w-full md:w-64 flex-shrink-0">
           <EcommerceFilters />
         </div> */}
-        
+
         {/* Product Grid */}
         <div className="flex-1">
           {isLoading ? (
@@ -67,7 +77,7 @@ const ProductListing = () => {
             <div>No products found matching your filters</div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {filteredProducts.map(product => (
+              {filteredProducts.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
             </div>
@@ -83,9 +93,9 @@ const ProductCard = ({ product }) => {
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
       <div className="h-48 bg-gray-200 flex items-center justify-center">
-        <img 
-          src={product.image} 
-          alt={product.name} 
+        <img
+          src={product.image}
+          alt={product.name}
           className="h-full w-full object-cover"
         />
       </div>
@@ -95,7 +105,11 @@ const ProductCard = ({ product }) => {
           {[...Array(5)].map((_, i) => (
             <svg
               key={i}
-              className={`w-4 h-4 ${i < Math.floor(product.rating) ? 'text-yellow-400' : 'text-gray-300'}`}
+              className={`w-4 h-4 ${
+                i < Math.floor(product.rating)
+                  ? "text-yellow-400"
+                  : "text-gray-300"
+              }`}
               fill="currentColor"
               viewBox="0 0 20 20"
             >

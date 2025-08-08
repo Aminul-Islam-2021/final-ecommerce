@@ -19,7 +19,7 @@ const ProductSlider = ({ title, products, addToCart }) => {
       // Update navigation state
       setIsBeginning(swiper.isBeginning);
       setIsEnd(swiper.isEnd);
-      
+
       // Force update navigation
       swiper.navigation.update();
     }
@@ -45,7 +45,9 @@ const ProductSlider = ({ title, products, addToCart }) => {
   return (
     <div className="relative px-2">
       <div className="flex justify-between items-center mb-6">
-        <h2 className=" pl-30 lg:pl-[45%] text-2xl font-bold text-gray-900">{title}</h2>
+        <h2 className=" pl-30 lg:pl-[45%] text-2xl font-bold text-gray-900">
+          {title}
+        </h2>
         <div className="flex ">
           <button
             ref={navigationPrevRef}
@@ -75,7 +77,7 @@ const ProductSlider = ({ title, products, addToCart }) => {
           </button>
         </div>
       </div>
-      
+
       <Swiper
         ref={swiperRef}
         modules={[Navigation]}
@@ -95,7 +97,7 @@ const ProductSlider = ({ title, products, addToCart }) => {
         }}
         breakpoints={{
           320: {
-            slidesPerView:2.5,
+            slidesPerView: 2.5,
             spaceBetween: 8,
           },
           480: {

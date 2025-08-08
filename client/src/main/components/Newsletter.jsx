@@ -1,39 +1,42 @@
-import { useState } from 'react'
+import { useState } from "react";
 
 const Newsletter = () => {
-  const [email, setEmail] = useState('')
-  const [isSubmitted, setIsSubmitted] = useState(false)
-  const [error, setError] = useState('')
+  const [email, setEmail] = useState("");
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    
+    e.preventDefault();
+
     if (!email) {
-      setError('Please enter your email address')
-      return
+      setError("Please enter your email address");
+      return;
     }
-    
+
     // Simple email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      setError('Please enter a valid email address')
-      return
+      setError("Please enter a valid email address");
+      return;
     }
-    
+
     // Mock submission - in a real app, this would call an API
-    setIsSubmitted(true)
-    setError('')
-  }
+    setIsSubmitted(true);
+    setError("");
+  };
 
   return (
     <div className="bg-white  py-8 mb-10 md:py-10 rounded-md px-20">
       <div className="container-custom">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">Subscribe to our newsletter</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+            Subscribe to our newsletter
+          </h2>
           <p className="text-gray-600 mb-6">
-            Stay updated with the latest products,<br/> exclusive offers, and style inspiration.
+            Stay updated with the latest products,
+            <br /> exclusive offers, and style inspiration.
           </p>
-          
+
           {isSubmitted ? (
             <div className="bg-green-100 text-green-800 p-4 rounded-md">
               Thank you for subscribing! We've sent a confirmation email.
@@ -65,7 +68,7 @@ const Newsletter = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Newsletter
+export default Newsletter;

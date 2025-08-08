@@ -28,7 +28,7 @@ const Home = () => {
         products={bestSellers}
         // addToCart={addToCart}
       />
-      <Newsletter/>
+      <Newsletter />
     </div>
   );
 };

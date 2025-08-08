@@ -83,23 +83,27 @@ const Filter = () => {
   );
 
   // ✅ Fixed color toggle handler
-  const handleColorToggle = useCallback((color) => {
-    // First update local state
-    setSelectedColors(prev => {
-      const newColors = prev.includes(color)
-        ? prev.filter(c => c !== color)
-        : [...prev, color];
-      return newColors;
-    });
-    
-    // Then update Redux state in a separate step
-    dispatch(setFilters({ 
-      color: selectedColors.includes(color)
-        ? selectedColors.filter(c => c !== color).join(',')
-        : [...selectedColors, color].join(',')
-    }));
-  }, [dispatch, selectedColors]); // Add selectedColors to dependencies
+  const handleColorToggle = useCallback(
+    (color) => {
+      // First update local state
+      setSelectedColors((prev) => {
+        const newColors = prev.includes(color)
+          ? prev.filter((c) => c !== color)
+          : [...prev, color];
+        return newColors;
+      });
 
+      // Then update Redux state in a separate step
+      dispatch(
+        setFilters({
+          color: selectedColors.includes(color)
+            ? selectedColors.filter((c) => c !== color).join(",")
+            : [...selectedColors, color].join(","),
+        })
+      );
+    },
+    [dispatch, selectedColors]
+  ); // Add selectedColors to dependencies
 
   const handleSizeToggle = useCallback(
     (size) => {

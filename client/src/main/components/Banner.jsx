@@ -50,7 +50,9 @@ const HeroBanner = () => {
             bulletClass: "custom-bullet",
             bulletActiveClass: "custom-bullet-active",
             renderBullet: (index, className) => {
-              return `<span class="${className}" aria-label="Slide ${index + 1}"></span>`;
+              return `<span class="${className}" aria-label="Slide ${
+                index + 1
+              }"></span>`;
             },
           }}
           navigation={{
@@ -69,7 +71,9 @@ const HeroBanner = () => {
                 />
                 <div className="absolute inset-0 bg-black opacity-20 rounded-lg"></div>
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center p-4">
-                  <h2 className="text-3xl md:text-4xl font-bold mb-2">{banner.title}</h2>
+                  <h2 className="text-3xl md:text-4xl font-bold mb-2">
+                    {banner.title}
+                  </h2>
                   <p className="text-lg md:text-xl mb-6">{banner.subtitle}</p>
                   <button className="bg-white text-gray-800 px-6 py-2 rounded-md shadow hover:bg-gray-200 transition font-medium">
                     {banner.buttonText}
@@ -131,13 +135,13 @@ const HeroBanner = () => {
           width: 12px;
           height: 12px;
           border-radius: 50%;
-          background-color: #9CA3AF;
+          background-color: #9ca3af;
           margin: 0 4px;
           cursor: pointer;
           transition: all 0.3s ease;
         }
         .custom-bullet-active {
-          background-color: #1F2937;
+          background-color: #1f2937;
           transform: scale(1.1);
         }
       `}</style>

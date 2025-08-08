@@ -59,21 +59,20 @@ export default function Table1() {
     if (!sortConfig.key) return 0;
     const aValue = a[sortConfig.key] ?? ""; // Handle undefined or null values
     const bValue = b[sortConfig.key] ?? ""; // Handle undefined or null values
-  
+
     if (sortConfig.direction === "ascending") {
       return aValue > bValue ? 1 : -1;
     } else {
       return aValue < bValue ? 1 : -1;
     }
   });
-  
+
   const filteredData = sortedData.filter((item) =>
     Object.values(item).some((value) => {
       // Ensure value is a string before calling toLowerCase
       return String(value).toLowerCase().includes(searchTerm.toLowerCase());
     })
   );
-  
 
   const indexOfLastRow = currentPage * rowsPerPage;
   const indexOfFirstRow = indexOfLastRow - rowsPerPage;
@@ -113,7 +112,7 @@ export default function Table1() {
         <table className="min-w-full bg-white border border-gray-200">
           <thead className="bg-gray-200">
             <tr>
-              {["name","name","name", "price", "category"].map((key) => (
+              {["name", "name", "name", "price", "category"].map((key) => (
                 <th
                   key={key}
                   onClick={() => handleSort(key)}
@@ -138,7 +137,9 @@ export default function Table1() {
                 <td className="px-4 py-2 text-sm text-gray-700">{item.name}</td>
                 <td className="px-4 py-2 text-sm text-gray-700">{item.name}</td>
                 <td className="px-4 py-2 text-sm text-gray-700">{item.name}</td>
-                <td className="px-4 py-2 text-sm text-gray-700">{item.price}</td>
+                <td className="px-4 py-2 text-sm text-gray-700">
+                  {item.price}
+                </td>
                 <td className="px-4 py-2 text-sm text-gray-700">
                   {item.category}
                 </td>
@@ -219,7 +220,10 @@ export default function Table1() {
                 leaveTo="opacity-0 scale-95"
               >
                 <DialogPanel className="w-full max-w-md bg-white p-6 rounded-lg shadow-lg">
-                  <DialogTitle as="h3" className="text-lg font-medium text-gray-900">
+                  <DialogTitle
+                    as="h3"
+                    className="text-lg font-medium text-gray-900"
+                  >
                     Modal
                   </DialogTitle>
                   <EditData data={modalData} closeModal={closeModal} />

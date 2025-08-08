@@ -37,6 +37,6 @@ const filtersSlice = createSlice({
   },
 });
 
-export const { setKeyword, setFilters, setSort, setPage,resetFilters } =
+export const { setKeyword, setFilters, setSort, setPage, resetFilters } =
   filtersSlice.actions;
 export default filtersSlice.reducer;

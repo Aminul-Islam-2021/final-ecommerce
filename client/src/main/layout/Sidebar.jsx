@@ -145,7 +145,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             //   <li className="pl-10 hover:bg-gray-200 p-2 w-full">Books</li>
             //   <li className="pl-10 hover:bg-gray-200 p-2 w-full">Sports</li>
             // </ul>
-            <Filter/>
+            <Filter />
           )}
         </div>
       </div>

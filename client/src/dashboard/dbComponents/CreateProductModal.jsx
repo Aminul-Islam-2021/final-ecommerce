@@ -110,9 +110,9 @@ const CreateProductModal = ({ isOpen, onClose }) => {
       prev.map((variant, i) =>
         i === variantIndex
           ? {
-              ...variant,
-              sizes: variant.sizes.filter((_, j) => j !== sizeIndex),
-            }
+            ...variant,
+            sizes: variant.sizes.filter((_, j) => j !== sizeIndex),
+          }
           : variant
       )
     );
@@ -306,7 +306,7 @@ const CreateProductModal = ({ isOpen, onClose }) => {
                         value={formData.subcategory}
                         onChange={handleInputChange}
                         className="w-full p-3 bg-gray-100 rounded-lg focus:ring focus:ring-blue-200 outline-none "
-                        //   disabled={!categoryId}
+                      //   disabled={!categoryId}
                       >
                         <option value="">Select Subcategory</option>
                         {subcategories?.subCategories?.map((sub) => (

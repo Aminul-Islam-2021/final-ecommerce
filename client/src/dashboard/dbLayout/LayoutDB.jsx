@@ -17,8 +17,8 @@ const LayoutDB = () => {
     };
 
     handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const toggleSidebar = () => {
@@ -42,7 +42,6 @@ const LayoutDB = () => {
           <main className="flex-1 h-full overflow-y-auto pt-2 px-2 sm:px-4 pb-4 md:ml-64">
             <Outlet />
           </main>
-
         </div>
       </div>
     </div>

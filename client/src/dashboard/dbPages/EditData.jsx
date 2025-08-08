@@ -1,12 +1,12 @@
-import React from 'react'
+import React from "react";
 
-const EditData = ({data}) => {
+const EditData = ({ data }) => {
   return (
     <div>
-     {data.data.name}
-     <button>Edit</button>
+      {data.data.name}
+      <button>Edit</button>
     </div>
-  )
-}
+  );
+};
 
-export default EditData
+export default EditData;

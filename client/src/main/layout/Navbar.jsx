@@ -102,28 +102,22 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-6">
-            <Link to="/"
-            
+            <Link
+              to="/"
               className="hover:text-primary transition-colors duration-200"
             >
               Home
             </Link>
-            <Link to="/products"
-            
+            <Link
+              to="/products"
               className="hover:text-primary transition-colors duration-200"
             >
               Products
             </Link>
-            <Link
-            
-              className="hover:text-primary transition-colors duration-200"
-            >
+            <Link className="hover:text-primary transition-colors duration-200">
               Categories
             </Link>
-            <Link
-            
-              className="hover:text-primary transition-colors duration-200"
-            >
+            <Link className="hover:text-primary transition-colors duration-200">
               Deals
             </Link>
           </div>
@@ -172,29 +166,17 @@ const Navbar = () => {
               {/* Dropdown Menu */}
               {isProfileOpen && (
                 <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 border border-gray-100">
-                  <Link
-                  
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150"
-                  >
+                  <Link className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150">
                     My Account
                   </Link>
-                  <Link
-                  
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150"
-                  >
+                  <Link className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150">
                     Orders
                   </Link>
-                  <Link
-                  
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150"
-                  >
+                  <Link className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150">
                     Wishlist
                   </Link>
                   <div className="border-t border-gray-100 my-1"></div>
-                  <Link
-                  
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150"
-                  >
+                  <Link className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150">
                     Sign Out
                   </Link>
                 </div>

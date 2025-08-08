@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   FiHome,
   FiShoppingCart,
@@ -9,11 +10,11 @@ import {
   FiDollarSign,
   FiTag,
   FiChevronDown,
-  FiChevronRight
-} from 'react-icons/fi';
+  FiChevronRight,
+} from "react-icons/fi";
 import { MdOutlineInventory } from "react-icons/md";
-import CreateProductModal from '../dbComponents/CreateProductModal';
-import CategoryModal from '../dbComponents/CategoryModal';
+import CreateProductModal from "../dbComponents/CreateProductModal";
+import CategoryModal from "../dbComponents/CategoryModal";
 
 const SidebarDB = ({ isOpen, isMobile }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -21,12 +22,11 @@ const SidebarDB = ({ isOpen, isMobile }) => {
   const [expandedItems, setExpandedItems] = useState({});
 
   const toggleItem = (name) => {
-    setExpandedItems(prev => ({
+    setExpandedItems((prev) => ({
       ...prev,
-      [name]: !prev[name]
+      [name]: !prev[name],
     }));
   };
-
 
   // Example click handler functions
   const handleCreateProduct = () => {
@@ -40,89 +40,97 @@ const SidebarDB = ({ isOpen, isMobile }) => {
   };
 
   const handleNewOrder = () => {
-    alert('New Order clicked');
+    alert("New Order clicked");
     // Add your logic here
   };
 
   const menuItems = [
     {
-      name: 'Dashboard',
+      name: "Dashboard",
       icon: <FiHome />,
-      link: '#'
+      link: "/dashboard",
     },
     {
-      name: 'Products',
+      name: "Products",
       icon: <FiPackage />,
       subItems: [
-        { name: 'All Products', link: '#' },
+        { name: "All Products", link: "all-products" },
+        // {
+        //   name: 'Create Product',
+        //   action: handleCreateProduct,
+        //   isButton: true
+        // },
         {
-          name: 'Create Product',
-          action: handleCreateProduct,
-          isButton: true
+          name: "Create Product",
+          link: "create-product",
         },
+        // {
+        //   name: 'Product Categories',
+        //   action: handleCategory,
+        //   isButton: true
+        // }
         {
-          name: 'Product Categories',
-          action: handleCategory,
-          isButton: true
-        }
-      ]
+          name: "Product Categories",
+          link: "category",
+        },
+      ],
     },
     {
-      name: 'Orders',
+      name: "Orders",
       icon: <FiShoppingCart />,
       subItems: [
-        { name: 'All Orders', link: '#' },
+        { name: "All Orders", link: "#" },
         {
-          name: 'New Order',
+          name: "New Order",
           action: handleNewOrder, // Button with onClick
-          isButton: true
+          isButton: true,
         },
-        { name: 'Pending Orders', link: '#' },
-        { name: 'Completed Orders', link: '#' }
-      ]
+        { name: "Pending Orders", link: "#" },
+        { name: "Completed Orders", link: "#" },
+      ],
     },
     {
-      name: 'Customers',
+      name: "Customers",
       icon: <FiUsers />,
       subItems: [
-        { name: 'Customer List', link: '#' },
-        { name: 'Customer Groups', link: '#' }
-      ]
+        { name: "Customer List", link: "#" },
+        { name: "Customer Groups", link: "#" },
+      ],
     },
     {
-      name: 'Categories',
+      name: "Categories",
       icon: <FiTag />,
-      link: '#'
+      link: "#",
     },
     {
-      name: 'Sales',
+      name: "Sales",
       icon: <FiDollarSign />,
       subItems: [
-        { name: 'Sales Report', link: '#' },
-        { name: 'Transactions', link: '#' }
-      ]
+        { name: "Sales Report", link: "#" },
+        { name: "Transactions", link: "#" },
+      ],
     },
     {
-      name: 'Inventory',
+      name: "Inventory",
       icon: <MdOutlineInventory />,
       subItems: [
-        { name: 'Stock Levels', link: '#' },
-        { name: 'Inventory Alerts', link: '#' }
-      ]
+        { name: "Stock Levels", link: "#" },
+        { name: "Inventory Alerts", link: "#" },
+      ],
     },
     {
-      name: 'Analytics',
+      name: "Analytics",
       icon: <FiPieChart />,
-      link: '#'
+      link: "#",
     },
     {
-      name: 'Settings',
+      name: "Settings",
       icon: <FiSettings />,
       subItems: [
-        { name: 'General Settings', link: '#' },
-        { name: 'Payment Methods', link: '#' },
-        { name: 'Shipping Options', link: '#' }
-      ]
+        { name: "General Settings", link: "#" },
+        { name: "Payment Methods", link: "#" },
+        { name: "Shipping Options", link: "#" },
+      ],
     },
   ];
 
@@ -130,8 +138,8 @@ const SidebarDB = ({ isOpen, isMobile }) => {
     <>
       <aside
         className={`bg-white shadow-sm transform top-0 left-0 w-64 fixed h-full overflow-hidden transition-all duration-300 ease-in-out z-30
-        ${isOpen ? 'translate-x-0' : '-translate-x-full'} 
-        ${isMobile ? 'md:translate-x-0' : ''}
+        ${isOpen ? "translate-x-0" : "-translate-x-full"} 
+        ${isMobile ? "md:translate-x-0" : ""}
       `}
       >
         <div className="flex flex-col h-full">
@@ -174,12 +182,12 @@ const SidebarDB = ({ isOpen, isMobile }) => {
                                   {subItem.name}
                                 </button>
                               ) : (
-                                <a
-                                  href={subItem.link}
+                                <Link
+                                  to={subItem.link}
                                   className="block w-full px-4 py-2 text-sm text-gray-600 hover:bg-cyan-500 hover:text-white transition-colors duration-200 pl-12"
                                 >
                                   {subItem.name}
-                                </a>
+                                </Link>
                               )}
                             </li>
                           ))}
@@ -187,13 +195,13 @@ const SidebarDB = ({ isOpen, isMobile }) => {
                       )}
                     </>
                   ) : (
-                    <a
-                      href={item.link}
+                    <Link
+                      to={item.link}
                       className="flex items-center px-4 py-3 text-gray-600 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                     >
                       <span className="mr-3">{item.icon}</span>
                       <span>{item.name}</span>
-                    </a>
+                    </Link>
                   )}
                 </li>
               ))}
@@ -225,8 +233,7 @@ const SidebarDB = ({ isOpen, isMobile }) => {
         onClose={() => setIsCategoryModalOpen(false)}
       />
     </>
-
   );
-}
+};
 
 export default SidebarDB;
