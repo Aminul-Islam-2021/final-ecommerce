@@ -2,8 +2,11 @@ import React from "react";
 import { FiEye } from "react-icons/fi";
 import { HiOutlinePencilSquare } from "react-icons/hi2";
 import { GoTrash } from "react-icons/go";
+import { useGetProductsQuery } from "../../store/features/products/productApi";
 
 const AllProducts = () => {
+  const { data: products } = useGetProductsQuery();
+  console.log(products);
   return (
     <div className="bg-white rounded-lg shadow mb-4 overflow-hidden">
       <div className="p-3 sm:p-4">
@@ -29,25 +32,25 @@ const AllProducts = () => {
                   scope="col"
                   className="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                 >
-                  Order ID
+                  Image
                 </th>
                 <th
                   scope="col"
                   className="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                 >
-                  Customer
+                  Product Name
                 </th>
                 <th
                   scope="col"
                   className="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                 >
-                  Status
+                  Price
                 </th>
                 <th
                   scope="col"
                   className="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                 >
-                  Date
+                 stock
                 </th>
                 <th
                   scope="col"
@@ -64,16 +67,24 @@ const AllProducts = () => {
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
-              {[1, 2, 3, 4, 5].map((item) => (
-                <tr key={item}>
+              {products?.products?.map((item) => (
+                <tr key={item._id}>
                   <td className="px-3 py-2 whitespace-nowrap text-xs sm:text-sm font-medium text-gray-900">
-                    #ORD-{item}00{item}
+                    <img
+                      src={item?.images[0]?.secure_url}
+                      alt={item.title}
+                      className=" h-15 w-15 object-cover rounded-full"
+                    />
                   </td>
                   <td className="px-3 py-2 whitespace-nowrap text-xs sm:text-sm text-gray-500">
-                    Customer {item}
+                    {item.title}
                   </td>
                   <td className="px-3 py-2 whitespace-nowrap">
-                    <span
+                    <span className="px-3 py-2 whitespace-nowrap text-xs sm:text-sm text-gray-500">
+                      tk/-{item.price}
+                    </span>
+
+                    {/* <span
                       className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
                            ${
                              item % 3 === 0
@@ -88,15 +99,13 @@ const AllProducts = () => {
                         : item % 2 === 0
                         ? "Processing"
                         : "Shipped"}
-                    </span>
+                    </span> */}
                   </td>
+                  <td className="px-3 py-2 whitespace-nowrap text-xs sm:text-sm text-gray-500"></td>
                   <td className="px-3 py-2 whitespace-nowrap text-xs sm:text-sm text-gray-500">
-                    2023-05-{10 + item}
+                    ${item.price}
                   </td>
-                  <td className="px-3 py-2 whitespace-nowrap text-xs sm:text-sm text-gray-500">
-                    ${(item * 125).toFixed(2)}
-                  </td>
-                  <td className="flex gap-2 py-2">
+                  <td className="flex gap-2 py-7 content-center whitespace-nowrap">
                     <button className="text-blue-500 hover:text-blue-700">
                       <FiEye className="h-5 w-5" />
                     </button>

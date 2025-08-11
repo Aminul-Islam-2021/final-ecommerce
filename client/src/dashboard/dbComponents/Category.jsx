@@ -186,7 +186,7 @@ const Category = () => {
                 value={newCategoryName}
                 onChange={(e) => setNewCategoryName(e.target.value)}
                 placeholder="Enter category name"
-                className="flex-1 px-3 py-2 border border-gray-200 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-200"
+                className="flex-1 px-3 py-2 border border-gray-50 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-200"
               />
               <div className="flex gap-2">
                 <button
@@ -220,7 +220,7 @@ const Category = () => {
                       onChange={(e) =>
                         startEditing(category._id, "category", e.target.value)
                       }
-                      className="px-2 py-1 border border-gray-200 rounded mr-2 focus:outline-none focus:ring-1 focus:ring-blue-200"
+                      className="px-2 py-1 border border-gray-50 rounded mr-2 focus:outline-none focus:ring-1 focus:ring-blue-200"
                     />
                   ) : (
                     <h3 className="font-medium text-lg flex items-center">
@@ -367,7 +367,7 @@ const SubcategoryList = ({
               value={newSubcategoryName}
               onChange={(e) => onSubcategoryNameChange(e.target.value)}
               placeholder="Enter subcategory name"
-              className="flex-1 px-3 py-2 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-200"
+              className="flex-1 px-3 py-2 border border-gray-50 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-200"
             />
             <div className="flex gap-2">
               <button
@@ -421,7 +421,7 @@ const SubcategoryList = ({
                     onChange={(e) =>
                       onStartEdit(sub._id, "subcategory", e.target.value)
                     }
-                    className="px-2 py-1 border border-gray-200 rounded mr-2 focus:outline-none focus:ring-1 focus:ring-blue-200"
+                    className="px-2 py-1 border border-gray-50 rounded mr-2 focus:outline-none focus:ring-1 focus:ring-blue-200"
                   />
                 ) : (
                   <span className="flex items-center">

@@ -1,10 +1,12 @@
 import React, { useCallback, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { RxCross2 } from "react-icons/rx";
 import { useGetCategoriesQuery } from "../../store/features/category/categoryApi";
 import { useGetSubCategoriesQuery } from "../../store/features/category/subCategoryApi";
 import { useCreateProductMutation } from "../../store/features/products/productApi";
 
 const CreateProduct = () => {
+  const navigate = useNavigate();
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [formData, setFormData] = useState({
     title: "",
@@ -166,6 +168,7 @@ const CreateProduct = () => {
         variants: [],
       });
       setImagePreview([]);
+      navigate("/dashboard/all-products"); // Redirect to products page
     } catch (err) {
       alert(`Failed to create product. ${err.data}`);
       console.error("Error:", err.data);
